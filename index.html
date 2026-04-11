@@ -283,20 +283,9 @@
     </div>
 
     <div class="step" id="s5">
-      <div class="step-label">Step 5 of 6 — Dining</div>
-      <h2>Your dining habits</h2>
-      <p class="sub">Tell us which court you use most and how often you eat.</p>
-      <div class="fg" style="margin-bottom:20px">
-        <label>Preferred Dining Court</label>
-        <select id="q-court" onchange="answers.court=this.value">
-          <option value="any">Any / All Courts</option>
-          <option value="Ford">Ford Dining Court</option>
-          <option value="Earhart">Earhart Dining Court</option>
-          <option value="Windsor">Windsor Dining Court</option>
-          <option value="Wiley">Wiley Dining Court</option>
-          <option value="Hillenbrand">Hillenbrand Dining Court</option>
-        </select>
-      </div>
+      <div class="step-label">Step 5 of 6 — Meals</div>
+      <h2>Your meal habits</h2>
+      <p class="sub">How many meals do you typically eat per day?</p>
       <div class="slider-group">
         <div class="slider-hdr"><label>Meals per day</label><span class="slider-val" id="meal-val">3</span></div>
         <input type="range" min="2" max="6" value="3" id="q-meals" oninput="document.getElementById('meal-val').textContent=this.value;answers.meals=+this.value">
@@ -408,7 +397,7 @@ function nextStep(n) {
   }
   if(n === 2 && !answers.activity) { alert('Please select an activity level.'); return; }
   if(n === 3 && !answers.goal) { alert('Please select a goal.'); return; }
-  if(n === 5) { answers.court = document.getElementById('q-court').value; answers.meals = +document.getElementById('q-meals').value; }
+  if(n === 5) { answers.meals = +document.getElementById('q-meals').value; }
   document.getElementById('s'+n).classList.remove('active');
   curStep = n+1;
   document.getElementById('s'+curStep).classList.add('active');
